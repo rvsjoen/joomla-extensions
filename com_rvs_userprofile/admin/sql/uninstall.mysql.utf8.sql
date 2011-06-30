@@ -1,0 +1,4 @@
+-- @package 	RVS
+-- @subpackage  UserProfile
+-- @copyright 	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+-- @license 	http://www.gnu.org/licenses/gpl-2.0.html
