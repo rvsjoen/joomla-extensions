@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	$Id: rvs_recaptcha.xml 86 2011-03-31 01:35:11Z rvsjoen $
+	RVS reCaptcha
+	Rune V. Sjøen <rvsjoen@gmail.com>
+	Copyright (C) 2011 Rune V. Sjøen http://www.twilight-zone.com
+	License GNU General Public License version 2 or later; see LICENSE.txt, see LICENSE.php
+-->
+<extension version="1.6" type="plugin" group="system">
+	<name>PLG_RVS_RECAPTCHA</name>
+	<creationDate>January 2011</creationDate>
+	<author>Rune V. Sjøen</author>
+	<authorEmail>rvsjoen@gmail.com</authorEmail>
+	<authorUrl>http://www.twilight-zone.com</authorUrl>
+	<copyright>Rune V. Sjøen</copyright>
+	<license>GNU/GPL</license>
+	<description>PLG_SYSTEM_RVS_RECAPTCHA_XML_DESCRIPTION</description>
+	<version>1.0</version>
+	<files>
+		<folder>language</folder>
+		<folder>rules</folder>
+		<folder>fields</folder>
+		<folder>forms</folder>
+		<folder>include</folder>
+		<filename plugin="rvs_recaptcha">rvs_recaptcha.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field 
+					name="public_key" 
+					type="input" 
+					class="text"
+					size="48"
+					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_PUBLIC_KEY"
+					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_PUBLIC_KEY_DESC"
+					/>
+				<field 
+					name="private_key" 
+					type="input" 
+					class="text"
+					size="48"
+					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_PRIVATE_KEY"
+					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_PRIVATE_KEY_DESC"
+					/>
+				<field
+					name="theme"
+					type="list"
+					class="inputbox"
+					default="clean"
+					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_THEME"
+					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_THEME_DESC"
+					>
+					<option value="clean">clean</option>
+					<option value="blackglass">blackglass</option>
+					<option value="red">red</option>
+					<option value="white">white</option>
+				</field>
+				<field
+					name="lang"
+					type="list"
+					class="inputbox"
+					default="en"
+					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_LANG"
+					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_LANG_DESC"
+					>
+					<option value="en">English</option>
+					<option value="nl">Dutch</option>
+					<option value="fr">French</option>
+					<option value="de">German</option>
+					<option value="pt">Portuguese</option>
+					<option value="ru">Russian</option>
+					<option value="es">Spanish</option>
+					<option value="tr">Turkish</option>	
+				</field>
+				<field
+					name="tabindex"
+					type="input"
+					class="inputbox"
+					default="0"
+					size="2"
+					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_TABINDEX"
+					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_TABINDEX_DESC"
+				/>
+			</fieldset>
+			<fieldset name="forms" label="PLG_SYSTEM_RVS_RECAPTCHA_FIELDSET_FORMS">
+				<field 
+					id="form_userreg"
+					name="form_userreg" 
+					type="radio"
+					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_USERREG_LABEL"
+					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_USERREG_DESC"
+					class="inputbox"
+					default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<!-- 
+				<field 
+					id="form_contact"
+					name="form_contact" 
+					type="radio"
+					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_CONTACT_LABEL"
+					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_CONTACT_DESC"
+					class="inputbox"
+					default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				 -->
+			</fieldset>
+		</fields>
+	</config>
+</extension>

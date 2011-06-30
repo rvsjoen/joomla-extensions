@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	$Id$
+	RVS jQueryLoader
+	Rune V. Sjøen <rvsjoen@gmail.com>
+	Copyright (C) 2011 Rune V. Sjøen http://www.twilight-zone.com
+	License GNU General Public License version 2 or later; see LICENSE.txt, see LICENSE.php
+-->
+<extension version="1.6" type="plugin" group="system">
+	<name>PLG_RVS_JQUERYLOADER</name>
+	<creationDate>January 2011</creationDate>
+	<author>Rune V. Sjøen</author>
+	<authorEmail>rvsjoen@gmail.com</authorEmail>
+	<authorUrl>http://www.twilight-zone.com</authorUrl>
+	<copyright>Rune V. Sjøen</copyright>
+	<license>GNU/GPL</license>
+	<description>PLG_SYSTEM_RVS_JQUERYLOADER_XML_DESCRIPTION</description>
+	<version>1.0</version>
+	<files>
+		<folder>language</folder>
+		<filename plugin="rvs_jqueryloader">rvs_jqueryloader.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<media destination="plg_system_rvs_jqueryloader" folder="media">
+		<folder>js</folder>
+		<filename>index.html</filename>
+	</media>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					id="compressed"
+					name="compressed"
+					type="radio"
+					label="PLG_SYSTEM_RVS_JQUERYLOADER_FIELD_COMPRESSED_LABEL"
+					description="PLG_SYSTEM_RVS_JQUERYLOADER_FIELD_COMPRESSED_DESC"
+					class="inputbox"
+					default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					id="active_site"
+					name="active_site"
+					type="radio"
+					label="PLG_SYSTEM_RVS_JQUERYLOADER_FIELD_ACTIVE_SITE_LABEL"
+					description="PLG_SYSTEM_RVS_JQUERYLOADER_FIELD_ACTIVE_SITE_DESC"
+					class="inputbox"
+					default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					id="active_admin"
+					name="active_admin"
+					type="radio"
+					label="PLG_SYSTEM_RVS_JQUERYLOADER_FIELD_ACTIVE_ADMIN_LABEL"
+					description="PLG_SYSTEM_RVS_JQUERYLOADER_FIELD_ACTIVE_ADMIN_DESC"
+					class="inputbox"
+					default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					id="version"
+					name="version"
+					type="input"
+					label="PLG_SYSTEM_RVS_JQUERYLOADER_FIELD_VERSION_LABEL"
+					description="PLG_SYSTEM_RVS_JQUERYLOADER_FIELD_VERSION_DESC"
+					class="inputbox"
+					default="1.4.4"/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
