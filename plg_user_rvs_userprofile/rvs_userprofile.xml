@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="1.5" group="user" method="upgrade">
+	<name>plg_user_rvs_userprofile</name>
+	<creationDate>2011-06-30</creationDate>
+	<author>Rune V. Sjøen</author>
+	<authorEmail>rvsjoen@gmail.com</authorEmail>
+	<authorUrl>http://www.twilight-zone.com</authorUrl>
+	<copyright>Copyright (C) 2005 - 2011 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.7.0</version>
+	<description>PLG_USER_RVS_USERPROFILE_DESCRIPTION</description>
+	<files>
+		<folder>language</folder>
+		<filename plugin="rvs_userprofile">rvs_userprofile.php</filename>
+		<filename>rvs_userprofile.xml</filename>
+		<filename>index.html</filename>
+	</files>
+</extension>
