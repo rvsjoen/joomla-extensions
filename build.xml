@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project default="dist">
+	<property name="extension" 		value="" />
+	<property name="build.dir" 		value="build" />
+	<property name="release.dir" 	value="releases" />
+	<property name="project.dir"	value="${extension}" />
+
+	<!-- Get a nice timestamp to put in the filename -->
+	<tstamp>
+		<format property="version" pattern="%Y%m%d_%H%M"/>
+	</tstamp>
+
+	<!-- Do initialization stuff -->
+	<target name="prepare">
+		<property file="build.properties"  override="true"/>
+		<if>
+			<equals arg1="${extension}" arg2="" />
+			<then>
+				<fail message="Extension not specified, use -Dextension=EXTENSION" />
+			</then>
+			<else>
+				<property file="${extension}.properties"  override="true"/>
+			</else>
+		</if>
+	</target>
+
+	<!-- This is a generic entry point for the build target -->
+	<target name="build" depends="prepare">
+		<mkdir dir="${build.dir}" />
+		<delete dir="${build.dir}/${extension}" />
+		<phingcall target="_${project.type}"></phingcall>
+	</target>
+
+	<!-- Build the extension package from the folder -->
+	<target name="dist" depends="prepare">
+		<mkdir dir="${release.dir}" />
+		<zip destfile="${release.dir}/${extension}_${version}.zip">
+			<fileset dir="${extension}" >
+				<include name="**/*"/>
+			</fileset>
+		</zip>
+		<echo msg="DONE!" />
+	</target>
+
+	<!-- Delete the extension to make room for the updated version -->
+	<target name="_clean">
+		<delete includeemptydirs="true">
+		  <fileset dir="${extension}">
+		  	<include name="*" />
+		  	<include name="*/**" />
+		  </fileset>
+		</delete>
+	</target>
+	
+	<!-- Copy the newly built extension into the repository -->
+	<target name="_sync">
+		<copy todir="${extension}">
+			<fileset dir="${build.dir}/${extension}">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- Check if the extension has a media folder and copy it -->
+	<target name="_media">
+		<available file="${source.dir}/media/${project.dir}" type="dir" property="source.media.available" value="true" />
+		<if>
+			<equals arg1="${source.media.available}" arg2="1" />
+			<then>
+				<copy todir="${build.dir}/${extension}/media" haltonerror="false">
+					<fileset dir="${source.dir}/media/${project.dir}">
+						<include name="**/*"/>
+					</fileset>
+				</copy>
+			</then>
+		</if>
+	</target>
+	
+	<!-- Build target for modules -->
+	<target name="_module">
+		<!-- First we check if the extension has a media folder -->
+		<phingcall target="_media" />
+
+		<!-- Add the administrator prefix if this is an admin extension -->
+		<if>
+			<equals arg1="${project.client}" arg2="admin" />
+			<then>
+				<property name="source.dir" value="${source.dir}/administrator/modules/${project.dir}" override="true"/>
+			</then>
+			<else>
+				<property name="source.dir" value="${source.dir}/modules/${project.dir}" override="true" />
+			</else>
+		</if>
+		
+		<!-- Now use the updated source.dir property to copy the source files -->
+		<available file="${source.dir}" type="dir" property="source.available" value="true" />
+		<if>
+			<equals arg1="${source.available}" arg2="1" />
+			<then>
+				<echo msg="Building module from source tree ${source.dir}" />
+				<copy todir="${build.dir}/${extension}" haltonerror="false">
+					<fileset dir="${source.dir}">
+						<include name="**/*"/>
+					</fileset>
+				</copy>
+			</then>
+			<else>
+				<fail msg="Source folder does not exist ${source.dir}" />
+			</else>
+		</if>
+		
+		<!-- Now that we have built the extension put it back into the repository --> 
+		<phingcall target="_clean" />
+		<phingcall target="_sync" />
+	</target>
+
+	<!-- Build target for components -->
+	<target name="_component">
+		<!-- First we check if the extension has a media folder -->
+		<phingcall target="_media" />
+		
+		<copy todir="${build.dir}/${extension}/site" haltonerror="false">
+			<fileset dir="${source.dir}/components/${project.dir}">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+		<copy todir="${build.dir}/${extension}/admin" haltonerror="false">
+			<fileset dir="${source.dir}/administrator/components/${project.dir}">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+
+		<!-- Move the manifest to the parent directory -->
+		<move file="${build.dir}/${extension}/admin/${project.name}.xml" todir="${build.dir}/${extension}" />
+		
+		<!-- Now that we have built the extension put it back into the repository -->
+		<!--		<phingcall target="_clean" />
+		<phingcall target="_sync" /> -->
+	</target>
+
+	<!-- Build target for plugins -->
+	<target name="_plugin">
+		<!-- First we check if the extension has a media folder -->
+		<phingcall target="_media" />
+			
+		<property name="source.dir" value="${source.dir}/plugins/${project.group}/${project.dir}" override="true"/>
+
+		<available file="${source.dir}" type="dir" property="source.available" value="true" />
+		<if>
+			<equals arg1="${source.available}" arg2="1" />
+			<then>
+				<echo msg="Building plugin from source tree ${source.dir}" />
+				<copy todir="${build.dir}/${extension}" haltonerror="false">
+					<fileset dir="${source.dir}">
+						<include name="**/*"/>
+					</fileset>
+				</copy>
+			</then>
+			<else>
+				<fail msg="Source folder does not exist ${source.dir}" />
+			</else>
+		</if>
+		
+		<!-- Now that we have built the extension put it back into the repository -->
+		<phingcall target="_clean" />
+		<phingcall target="_sync" />
+	</target>
+
+	<!-- Build target for templates -->
+	<target name="_template">
+		<if>
+			<equals arg1="${project.client}" arg2="admin" />
+			<then>
+				<property name="source.dir" value="${source.dir}/administrator/templates/${project.dir}" override="true"/>
+			</then>
+			<else>
+				<property name="source.dir" value="${source.dir}/templates/${project.dir}" override="true" />
+			</else>
+		</if>
+		<available file="${source.dir}" type="dir" property="source.available" value="true" />
+		<if>
+			<equals arg1="${source.available}" arg2="1" />
+			<then>
+				<echo msg="Building template from source tree ${source.dir}" />
+				<copy todir="${build.dir}/${extension}" haltonerror="false">
+					<fileset dir="${source.dir}">
+						<include name="**/*"/>
+					</fileset>
+				</copy>
+			</then>
+			<else>
+				<fail msg="Source folder does not exist ${source.dir}" />
+			</else>
+		</if>
+		<!-- Now that we have built the extension put it back into the repository -->
+		<phingcall target="_clean" />
+		<phingcall target="_sync" />
+	</target>
+
+</project>
