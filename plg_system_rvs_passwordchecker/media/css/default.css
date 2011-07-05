@@ -1,0 +1,17 @@
+#score {
+	color: #000;
+	font-size: 85%;
+	position:absolute;
+	text-align: center;
+	width: 100px;
+	z-index: 10;
+}
+#scorebar {
+	background-image: url(../images/bg_strength_gradient.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	position:absolute;
+	width: 100px;
+	border: 1px solid black;
+	z-index: 0;
+}
