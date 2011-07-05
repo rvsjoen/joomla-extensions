@@ -20,7 +20,7 @@ class plgSystemRvs_PasswordChecker extends JPlugin
 			return false;
 		}
 		
-		if(!($form->getName() == 'com_users.profile'){
+		if(!($form->getName() == 'com_users.profile')){
 			return true;
 		}
 

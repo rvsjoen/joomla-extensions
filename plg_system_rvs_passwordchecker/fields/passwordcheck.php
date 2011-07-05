@@ -8,34 +8,31 @@
 */
 
 jimport('joomla.form.formfield');
-jimport('joomla.html.parameter');
 
 class JFormFieldPasswordCheck extends JFormField
 {
 	protected $type = 'PasswordCheck';
 
 	public function __construct($form = null){
-		require_once(dirname(__FILE__).DS.'..'.DS.'include'.DS.'recaptchalib.php');
-		$this->params = new JParameter(JPluginHelper::getPlugin('system', 'rvs_recaptcha')->params);
-		$doc = JFactory::getDocument();
-		
-		$theme 		= $this->params->get('theme', 'clean');
-		$lang 		= $this->params->get('lang', 'en');
-		$tabindex 	= $this->params->get('tabindex', 0);
-		
+		JHtml::_('behavior.mootools');
+		$doc = JFactory::getDocument();	
+		$doc->addStyleSheet(JURI::root(true).'/media/plg_system_rvs_passwordchecker/css/default.css');
+		$doc->addScript(JURI::root(true).'/media/plg_system_rvs_passwordchecker/js/pwd_meter.js');
 		$doc->addScriptDeclaration("
-			var RecaptchaOptions = {
-			   theme : '${theme}',
-			   tabindex : ${tabindex},
-			   lang : '${lang}'
-			};
+		window.addEvent('domready', function() {
+			$('jform_password1').addEvent('keyup', function() {
+				chkPass(this.value);				
+			});
+		});
 		");
-
 		parent::__construct($form);
 	}
 	
 	protected function getInput(){
-		$publickey = $this->params->get('public_key');
-  		return recaptcha_get_html($publickey);
+  		return "
+  			<div id='score'>0%</div>
+  			<div id='scorebar' style='background-position: 0pt 50%;'>&nbsp;</div>
+  			<div id='complexity'></div>
+  		";
 	}
 }
