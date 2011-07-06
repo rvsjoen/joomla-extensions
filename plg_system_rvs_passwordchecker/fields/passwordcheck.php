@@ -8,12 +8,14 @@
 */
 
 jimport('joomla.form.formfield');
+JFormHelper::loadFieldType('password');
 
-class JFormFieldPasswordCheck extends JFormField
+class JFormFieldPasswordCheck extends JFormFieldPassword
 {
 	protected $type = 'PasswordCheck';
 
 	public function __construct($form = null){
+		parent::__construct($form);
 		JHtml::_('behavior.mootools');
 		$doc = JFactory::getDocument();	
 		$doc->addStyleSheet(JURI::root(true).'/media/plg_system_rvs_passwordchecker/css/default.css');
@@ -25,14 +27,14 @@ class JFormFieldPasswordCheck extends JFormField
 			});
 		});
 		");
-		parent::__construct($form);
 	}
 	
 	protected function getInput(){
-  		return "
-  			<div id='score'>0%</div>
-  			<div id='scorebar' style='background-position: 0pt 50%;'>&nbsp;</div>
-  			<div id='complexity'></div>
-  		";
+		return parent::getInput()."
+			<div id='rvs_passwordchecker_scorebar' style='background-position: 0pt 50%;'>
+				<div id='rvs_passwordchecker_score'>0%</div>
+			</div>
+  			<div id='rvs_passwordchecker_complexity'></div>
+			";
 	}
 }

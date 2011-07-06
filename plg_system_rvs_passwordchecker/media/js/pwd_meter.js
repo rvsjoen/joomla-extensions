@@ -36,9 +36,9 @@ String.prototype.strReverse = function() {
 };
 
 function chkPass(pwd) {
-	var oScorebar = document.getElementById("scorebar");
-	var oScore = document.getElementById("score");
-	var oComplexity = document.getElementById("complexity");
+	var oScorebar = document.getElementById("rvs_passwordchecker_scorebar");
+	var oScore = document.getElementById("rvs_passwordchecker_score");
+	var oComplexity = document.getElementById("rvs_passwordchecker_complexity");
 	var nScore = 0;
 	var nLength = 0;
 	var nAlphaUC = 0;

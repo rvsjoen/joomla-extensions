@@ -19,14 +19,22 @@ class plgSystemRvs_PasswordChecker extends JPlugin
 			$this->_subject->setError('JERROR_NOT_A_FORM');
 			return false;
 		}
-		
-		if(!($form->getName() == 'com_users.profile')){
+
+		// Only display on supported forms, otherwise just return
+		if(!(($form->getName() == 'com_users.profile' && JRequest::getVar('layout') == 'edit')
+			|| $form->getName() == 'com_users.registration')){
 			return true;
 		}
 
 		JForm::addFormPath (dirname(__FILE__).'/forms');
 		JForm::addFieldPath(dirname(__FILE__).'/fields');
-		$form->loadFile('rvs_passwordcheck', false);
+
+		if($form->getName() == 'com_users.profile'){
+			$form->loadFile('rvs_passwordcheck_profile', true);
+		} else if ($form->getName() == 'com_users.registration') {
+			$form->loadFile('rvs_passwordcheck_registration', true);
+		}
+
 		return true;
 	}
 }
