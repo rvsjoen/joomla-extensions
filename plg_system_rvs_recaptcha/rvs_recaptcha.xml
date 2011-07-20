@@ -24,6 +24,7 @@
 		<folder>include</folder>
 		<filename plugin="rvs_recaptcha">rvs_recaptcha.php</filename>
 		<filename>index.html</filename>
+		<filename>LICENSE.txt</filename>
 	</files>
 	<config>
 		<fields name="params">

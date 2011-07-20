@@ -16,7 +16,7 @@ class JFormFieldReCaptcha extends JFormField
 
 	public function __construct($form = null){
 		require_once(dirname(__FILE__).DS.'..'.DS.'include'.DS.'recaptchalib.php');
-		$this->params = new JParameter(JPluginHelper::getPlugin('system', 'rvs_recaptcha')->params);
+		$this->params = new JRegistry(JPluginHelper::getPlugin('system', 'rvs_recaptcha')->params);
 		$doc = JFactory::getDocument();
 		
 		$theme 		= $this->params->get('theme', 'clean');
@@ -35,7 +35,7 @@ class JFormFieldReCaptcha extends JFormField
 	}
 	
 	protected function getInput(){
-		$publickey = $this->params->get('public_key');
+		$publickey = $this->params->get('public_key', ' ');
   		return recaptcha_get_html($publickey).'<input type="hidden" name="jform[recaptcha]" value="1"/>';
 	}
 }
