@@ -23,7 +23,7 @@ class plgSystemRvs_Recaptcha extends JPlugin
 		if(!(
 			($form->getName() == 'com_users.registration' 	&& $this->params->get('form_userreg', 1))
 			||
-			($form->getName() == 'com_contact.contact' 		&& $this->params->get('form_contact', 1))
+			($form->getName() == 'com_contact.contact' 		&& $this->params->get('form_contact', 1) && JRequest::getVar('layout') != 'edit')
 		)){
 			return true;
 		}
