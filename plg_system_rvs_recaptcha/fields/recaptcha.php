@@ -36,6 +36,6 @@ class JFormFieldReCaptcha extends JFormField
 	
 	protected function getInput(){
 		$publickey = $this->params->get('public_key');
-  		return recaptcha_get_html($publickey);
+  		return recaptcha_get_html($publickey).'<input type="hidden" name="jform[recaptcha]" value="1"/>';
 	}
 }

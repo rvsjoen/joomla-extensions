@@ -7,17 +7,14 @@
 	License GNU General Public License version 2 or later; see LICENSE.txt, see LICENSE.php
 -->
 <form>
-	<fields name="rvs_recaptcha">
-		<fieldset name="rvs_recaptcha" label="PLG_SYSTEM_RVS_RECAPTCHA_SLIDER_LABEL"
-			addrulepath="plugins/system/rvs_recaptcha/rules">
-			<field
-				name="recaptcha"
-				type="recaptcha"
-				validate="recaptcha"
-				message="PLG_SYSTEM_RVS_RECAPTCHA_FAILED"
-				label="PLG_SYSTEM_RVS_RECAPTCHA_TITLE"
-				description="PLG_SYSTEM_RVS_RECAPTCHA_DESC">
-			</field>
-		</fieldset>
-	</fields>
+	<fieldset name="default"
+		addrulepath="plugins/system/rvs_recaptcha/rules">
+		<field
+			name="recaptcha"
+			type="recaptcha"
+			required="true"
+			validate="recaptcha"
+			message="PLG_SYSTEM_RVS_RECAPTCHA_FAILED"
+			label="PLG_SYSTEM_RVS_RECAPTCHA_TITLE"/>
+	</fieldset>
 </form>
