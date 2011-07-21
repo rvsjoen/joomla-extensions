@@ -68,7 +68,7 @@
 					label="PLG_SYSTEM_RVS_JQUERYLOADER_FIELD_VERSION_LABEL"
 					description="PLG_SYSTEM_RVS_JQUERYLOADER_FIELD_VERSION_DESC"
 					class="inputbox"
-					default="1.4.4"/>
+					default="1.6.2"/>
 			</fieldset>
 		</fields>
 	</config>
