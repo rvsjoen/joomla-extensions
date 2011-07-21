@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 
-	$Id$
-	RVS jQueryLoader
-	Rune V. Sjøen <rvsjoen@gmail.com>
-	Copyright (C) 2011 Rune V. Sjøen http://www.twilight-zone.com
-	License GNU General Public License version 2 or later; see LICENSE.txt, see LICENSE.php
+ @package		RVS
+ @subpackage	jQueryLoader
+ @author		Rune V. Sjøen <rvsjoen@gmail.com>
+ @copyright	Copyright (C) 2011 {@link http://www.twilight-zone.com}
+ @license		http://www.gnu.org/licenses/gpl-2.0.html
 -->
 <extension version="1.6" type="plugin" group="system">
 	<name>PLG_RVS_JQUERYLOADER</name>

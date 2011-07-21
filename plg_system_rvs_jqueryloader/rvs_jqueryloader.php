@@ -1,10 +1,10 @@
 <?php defined('_JEXEC') or die;
 /**
-* @version		$Id: rvs_jqueryloader.php 73 2011-01-26 21:23:25Z rvsjoen $
-* @package		RVS jQueryLoader
+* @package		RVS
+* @subpackage	jQueryLoader
 * @author		Rune V. Sjøen <rvsjoen@gmail.com>
-* @copyright	Copyright (C) 2011 {@link http://www.twilight-zone.com Rune V. Sjøen}
-* @license		GNU General Public License version 2 or later; see LICENSE.txt
+* @copyright	Copyright (C) 2011 {@link http://www.twilight-zone.com}
+* @license		http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 jimport('joomla.filesystem.file');
