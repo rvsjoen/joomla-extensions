@@ -30,9 +30,11 @@ class plgSystemRvs_PasswordChecker extends JPlugin
 		JForm::addFieldPath(dirname(__FILE__).'/fields');
 
 		if($form->getName() == 'com_users.profile'){
-			$form->loadFile('rvs_passwordcheck_profile', true);
+//			$form->loadFile('rvs_passwordcheck_profile', true);
+			$form->loadFile('rvs_passwordcheck');
 		} else if ($form->getName() == 'com_users.registration') {
-			$form->loadFile('rvs_passwordcheck_registration', true);
+//			$form->loadFile('rvs_passwordcheck_registration', true);
+			$form->loadFile('rvs_passwordcheck');
 		}
 
 		return true;

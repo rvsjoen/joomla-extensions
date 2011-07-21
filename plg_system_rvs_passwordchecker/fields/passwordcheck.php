@@ -30,7 +30,8 @@ class JFormFieldPasswordCheck extends JFormFieldPassword
 	}
 	
 	protected function getInput(){
-		return parent::getInput()."
+		//return parent::getInput()."
+		return "
 			<div id='rvs_passwordchecker_scorebar' style='background-position: 0pt 50%;'>
 				<div id='rvs_passwordchecker_score'>0%</div>
 			</div>
