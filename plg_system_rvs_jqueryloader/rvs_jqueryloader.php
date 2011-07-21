@@ -18,7 +18,7 @@ class plgSystemRvs_jQueryLoader extends JPlugin
 		$this->loadLanguage();
 	}
 	
-	public function onAfterInitialise(){
+	public function onBeforeRender(){
 		
 		$app = JFactory::getApplication();
 		$doc = JFactory::getDocument();
