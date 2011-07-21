@@ -111,4 +111,7 @@
 			</fieldset>
 		</fields>
 	</config>
+	<updateservers>
+		<server type="collection" priority="1" name="RVS Extension Update Site">http://localhost/joomla-cms/list.xml</server>
+	</updateservers>
 </extension>
