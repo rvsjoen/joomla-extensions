@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ @package		RVS
+ @author		Rune V. Sjøen <rvsjoen@gmail.com>
+ @copyright		Copyright (C) 2011 {@link http://www.twilight-zone.com}
+ @license		http://www.gnu.org/licenses/gpl-2.0.html
+-->
+<extensionset>
+	<extension 
+		name="PLG_RVS_RECAPTCHA"
+		description="PLG_SYSTEM_RVS_RECAPTCHA_XML_DESCRIPTION" 
+		element="rvs_recaptcha" 
+		type="plugin" 
+		folder="system" 
+		version="1.1" 
+		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_recaptcha.xml"/>
+	<extension 
+		name="PLG_RVS_JQUERYLOADER"
+		description="PLG_SYSTEM_RVS_JQUERYLOADER_XML_DESCRIPTION" 
+		element="rvs_jqueryloader" 
+		type="plugin" folder="system" 
+		version="1.0" 
+		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_jqueryloader.xml"/>
+	<extension 
+		name="PLG_RVS_PASSWORDCHECKER" 
+		description="PLG_SYSTEM_RVS_PASSWORDCHECKER_XML_DESCRIPTION"
+		element="rvs_passwordchecker" 
+		type="plugin" folder="system" 
+		version="1.0" 
+		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_passwordchecker.xml"/>
+</extensionset>
