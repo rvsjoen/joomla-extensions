@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ @package		RVS
+ @subpackage	Countdown
+ @author		Rune V. Sjøen <rvsjoen@gmail.com>
+ @copyright		Copyright (C) 2011 {@link http://www.twilight-zone.com}
+ @license		http://www.gnu.org/licenses/gpl-2.0.html
+-->
+<extension type="module" version="1.7.0" method="upgrade">
+	<name>MOD_RVS_COUNTDOWN</name>
+	<creationDate>January 2011</creationDate>
+	<author>Rune V. Sjøen</author>
+	<authorEmail>rvsjoen@gmail.com</authorEmail>
+	<authorUrl>http://www.twilight-zone.com</authorUrl>
+	<copyright>Rune V. Sjøen</copyright>
+	<license>GNU/GPL</license>
+	<version>1.0</version>
+	<description>MOD_RVS_COUNTDOWN_XML_DESCRIPTION</description>
+	<files>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+		<filename module="mod_rvs_countdown">mod_rvs_countdown.php</filename>
+		<filename>mod_rvs_countdown.xml</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="targetdate"
+					type="calendar"
+					class="text"
+					size="24"
+					label="MOD_RVS_COUNTDOWN_FIELD_TARGETDATE_LABEL"
+					description="MOD_RVS_COUNTDOWN_FIELD_TARGETDATE_DESC"
+					/>
+				<field
+					name="targettime"
+					type="input"
+					class="text"
+					size="8"
+					label="MOD_RVS_COUNTDOWN_FIELD_TARGETTIME_LABEL"
+					description="MOD_RVS_COUNTDOWN_FIELD_TARGETTIME_DESC"
+					/>
+				<field 
+					name="format"
+					type="input"
+					class="text"
+					size="32"
+					label="MOD_RVS_COUNTDOWN_FIELD_FORMAT_LABEL"
+					description="MOD_RVS_COUNTDOWN_FIELD_FORMAT_DESC"
+					/>
+				<field
+					name="stopaction"
+					class="inputbox"
+					type="list"
+					label="MOD_RVS_COUNTDOWN_FIELD_STOPACTION_LABEL"
+					description="MOD_RVS_COUNTDOWN_FIELD_STOPACTION_DESC"
+					>
+					<option value="stop">MOD_RVS_COUNTDOWN_ACTION_STOP</option>
+					<option value="message">MOD_RVS_COUNTDOWN_ACTION_MESSAGE</option>
+					<option value="remove">MOD_RVS_COUNTDOWN_ACTION_REMOVE</option>
+				</field>
+				<field
+					name="stopmessage"
+					type="textarea"
+					class="text"
+					rows="6"
+					cols="32"
+					label="MOD_RVS_COUNTDOWN_FIELD_STOPMESSAGE_LABEL"
+					description="MOD_RVS_COUNTDOWN_FIELD_STOPMESSAGE_DESC"
+					/>
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="collection" priority="1" name="RVS Extension Update Site">http://www.twilight-zone.com/extensions/list.xml</server>
+	</updateservers>
+</extension>
