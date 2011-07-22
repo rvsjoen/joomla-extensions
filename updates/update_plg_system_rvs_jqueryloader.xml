@@ -11,6 +11,13 @@
 		<downloads>
 			<downloadurl type="full" format="zip">http://www.twilight-zone.com/extensions/plg_system_rvs_jqueryloader_1.0.zip</downloadurl>
 		</downloads>
+		<targetplatform name="joomla" version="1.6"/>
+	</update>
+	<update> 
+		<version>1.0</version>
+		<downloads>
+			<downloadurl type="full" format="zip">http://www.twilight-zone.com/extensions/plg_system_rvs_jqueryloader_1.0.zip</downloadurl>
+		</downloads>
 		<targetplatform name="joomla" version="1.7"/>
 	</update>
 </updates>
