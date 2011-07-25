@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ @package		RVS
+ @subpackage	AISTrack
+ @author		Rune V. Sjøen <rvsjoen@gmail.com>
+ @copyright		Copyright (C) 2011 {@link http://www.twilight-zone.com}
+ @license		http://www.gnu.org/licenses/gpl-2.0.html
+-->
+<extension type="module" version="1.6.0" method="upgrade">
+	<name>MOD_RVS_AISTRACK</name>
+	<creationDate>July 2011</creationDate>
+	<author>Rune V. Sjøen</author>
+	<authorEmail>rvsjoen@gmail.com</authorEmail>
+	<authorUrl>http://www.twilight-zone.com</authorUrl>
+	<copyright>Rune V. Sjøen</copyright>
+	<license>GNU/GPL</license>
+	<version>1.0</version>
+	<description>MOD_RVS_AISTRACK_XML_DESCRIPTION</description>
+	<files>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+		<filename module="mod_rvs_aistrack">mod_rvs_aistrack.php</filename>
+		<filename>mod_rvs_aistrack.xml</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<config>
+	</config>
+	<updateservers>
+		<server type="collection" priority="1" name="RVS Extension Update Site">http://www.twilight-zone.com/extensions/list.xml</server>
+	</updateservers>
+</extension>
