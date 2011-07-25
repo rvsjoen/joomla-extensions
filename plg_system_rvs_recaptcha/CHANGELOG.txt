@@ -1,0 +1,25 @@
+VERSION 1.3
+
+	- Added swedish translation (sv-SE), thank you JOKR Solutions
+	  [http://www.jokrsolutions.se]
+
+VERSION 1.2
+
+	- As per request in the comments, added support for the forgotten password
+	  and username reminder forms. Please keep in mind that the spanish and
+	  french translation might be a little flaky, corrections are welcomed.
+	- Updater support was added recently, and this is the first update that can
+	  be installed through the update manager.
+
+VERSION 1.1
+
+	- Joomla! 1.7 compatibility
+	- Remove additional “Form Validation” fieldset, field is now part of the
+	  registration form
+	- Add some languages
+	- Fix template loading bug when no public API keys is given
+	- Add support for contact form
+
+VERSION 1.0
+
+	- Nothing to see here, move along!

@@ -25,6 +25,7 @@
 		<filename plugin="rvs_recaptcha">rvs_recaptcha.php</filename>
 		<filename>index.html</filename>
 		<filename>LICENSE.txt</filename>
+		<filename>CHANGELOG.txt</filename>
 	</files>
 	<config>
 		<fields name="params">
