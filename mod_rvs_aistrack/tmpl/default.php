@@ -8,4 +8,13 @@
  */
 
 ?>
-<div id="rvs_aistrack">&nbsp;</div>
+<div id="rvs_aistrack">
+	<iframe 
+		name="marinetraffic" 
+		id="marinetraffic" 
+		width="100%" 
+		height="600" 
+		scrolling="no" 
+		src="http://www.marinetraffic.com/ais/embed.aspx?mmsi=257337900&zoom=5&maptype=2&notation=false&shownames=false"
+	/>
+</div>

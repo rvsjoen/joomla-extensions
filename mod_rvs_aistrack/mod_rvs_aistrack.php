@@ -7,6 +7,4 @@
  * @license		http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-$doc = JFactory::getDocument();
-
 require JModuleHelper::getLayoutPath('mod_rvs_aistrack', $params->get('layout', 'default'));

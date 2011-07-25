@@ -21,7 +21,6 @@
 		<folder>language</folder>
 		<filename module="mod_rvs_aistrack">mod_rvs_aistrack.php</filename>
 		<filename>mod_rvs_aistrack.xml</filename>
-		<filename>helper.php</filename>
 		<filename>index.html</filename>
 	</files>
 	<config>
