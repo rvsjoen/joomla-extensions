@@ -15,7 +15,7 @@
 	<copyright>Rune V. Sjøen</copyright>
 	<license>GNU/GPL</license>
 	<description>PLG_SYSTEM_RVS_RECAPTCHA_XML_DESCRIPTION</description>
-	<version>1.1</version>
+	<version>1.2</version>
 	<files>
 		<folder>language</folder>
 		<folder>rules</folder>
