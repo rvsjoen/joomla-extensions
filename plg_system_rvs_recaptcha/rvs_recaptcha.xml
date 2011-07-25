@@ -108,6 +108,28 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
+				<field 
+					id="form_userremind"
+					name="form_userremind" 
+					type="radio"
+					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_REMIND_LABEL"
+					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_REMIND_DESC"
+					class="inputbox"
+					default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field 
+					id="form_userreset"
+					name="form_userreset" 
+					type="radio"
+					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_RESET_LABEL"
+					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_RESET_DESC"
+					class="inputbox"
+					default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
 			</fieldset>
 		</fields>
 	</config>

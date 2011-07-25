@@ -19,9 +19,13 @@ class plgSystemRvs_Recaptcha extends JPlugin
 			$this->_subject->setError('JERROR_NOT_A_FORM');
 			return false;
 		}
-		
+
 		if(!(
 			($form->getName() == 'com_users.registration' 	&& $this->params->get('form_userreg', 1))
+			||
+			($form->getName() == 'com_users.remind' 		&& $this->params->get('form_userremind', 1))
+			||
+			($form->getName() == 'com_users.reset_request' 	&& $this->params->get('form_userreset', 1))
 			||
 			($form->getName() == 'com_contact.contact' 		&& $this->params->get('form_contact', 1) && JRequest::getVar('layout') != 'edit')
 		)){
