@@ -1,7 +1,8 @@
 VERSION 1.3
 
-	- Added swedish translation (sv-SE), thank you JOKR Solutions
+	- Added Swedish translation (sv-SE), thank you JOKR Solutions
 	  [http://www.jokrsolutions.se]
+	- Added Italian translation (it-IT), thank you Visibility.cc
 
 VERSION 1.2
 
