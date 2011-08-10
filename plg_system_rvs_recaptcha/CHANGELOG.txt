@@ -1,5 +1,7 @@
-VERSION 1.3
+VERSION 1.2.1
 
+	- Added Turkish translation (tr-TR), thank you Serkan Korkmaz
+	  [http://www.sektorler.tk]
 	- Added Swedish translation (sv-SE), thank you JOKR Solutions
 	  [http://www.jokrsolutions.se]
 	- Added Italian translation (it-IT), thank you Visibility.cc
