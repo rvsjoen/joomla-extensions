@@ -1,5 +1,6 @@
-VERSION 1.2.1
+﻿VERSION 1.2.1
 
+	- Added Dutch tranlsation (nl-NL), thank you Ronald de Vries
 	- Added Brazilian Portuguese translation (pt-BR)
 	- Added Turkish translation (tr-TR), thank you Serkan Korkmaz
 	  [http://www.sektorler.tk]
