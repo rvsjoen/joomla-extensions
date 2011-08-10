@@ -7,25 +7,35 @@
 -->
 <extensionset>
 	<extension 
-		name="PLG_RVS_RECAPTCHA"
-		description="PLG_SYSTEM_RVS_RECAPTCHA_XML_DESCRIPTION" 
+		name="System - RVS reCaptcha"
+		description="" 
 		element="rvs_recaptcha" 
 		type="plugin" 
 		folder="system" 
-		version="1.2" 
+		version="1.2.1" 
 		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_recaptcha.xml"/>
 	<extension 
-		name="PLG_RVS_JQUERYLOADER"
-		description="PLG_SYSTEM_RVS_JQUERYLOADER_XML_DESCRIPTION" 
+		name="System - RVS jQueryLoader"
+		description="" 
 		element="rvs_jqueryloader" 
 		type="plugin" folder="system" 
 		version="1.0" 
 		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_jqueryloader.xml"/>
 	<extension 
-		name="PLG_RVS_PASSWORDCHECKER" 
-		description="PLG_SYSTEM_RVS_PASSWORDCHECKER_XML_DESCRIPTION"
+		name="System - RVS PasswordChecker" 
+		description=""
 		element="rvs_passwordchecker" 
 		type="plugin" folder="system" 
 		version="1.0" 
 		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_passwordchecker.xml"/>
 </extensionset>
+
+<!--
+	We'll use these once translations are fixed in the update manager
+	PLG_RVS_RECAPTCHA
+	PLG_SYSTEM_RVS_RECAPTCHA_XML_DESCRIPTION
+	PLG_RVS_JQUERYLOADER
+	PLG_SYSTEM_RVS_JQUERYLOADER_XML_DESCRIPTION
+	PLG_RVS_PASSWORDCHECKER
+	PLG_SYSTEM_RVS_PASSWORDCHECKER_XML_DESCRIPTION
+-->
