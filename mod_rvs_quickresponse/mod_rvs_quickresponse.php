@@ -11,11 +11,13 @@ if(!class_exists('qrstr')){
 	require_once(dirname(__FILE__).'/include/phpqrcode/qrlib.php');
 }
 
-$qrhash = md5(JURI::getInstance()->__toString());
+$url = JURI::getInstance()->__toString();
+$qrhash = md5($url);
 $qrfile = JPATH_SITE.'/tmp/qr_'.$qrhash.'.png';
 
+var_dump(JURI::getInstance()->__toString());
 if(!file_exists($qrfile)){
-	QRcode::png(JURI::base(), $qrfile, 'L', 4, 2);
+	QRcode::png($url, $qrfile, 'L', 4, 2);
 }
 
 $qrlink = JURI::base().'/tmp/qr_'.$qrhash.'.png';
