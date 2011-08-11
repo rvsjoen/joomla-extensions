@@ -4,7 +4,7 @@
 * @subpackage	QuickResponse
 * @author		Rune V. Sjøen <rvsjoen@gmail.com>
 * @copyright	Copyright (C) 2011 {@link http://www.twilight-zone.com}
-* @license		http://www.gnu.org/licenses/gpl.html
+* @license		http://www.gnu.org/licenses/gpl-3.0.html
 */
 
 $size = (int) $params->get('size', 128);

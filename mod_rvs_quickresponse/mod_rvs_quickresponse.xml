@@ -3,7 +3,7 @@
     RVS QuickResponse
     Rune V. Sjøen <rvsjoen@gmail.com>
     Copyright (C) 2011 Rune V. Sjøen http://www.twilight-zone.com
-    License GNU General Public License version 2 or later; see LICENSE.txt, see LICENSE.php
+    License GNU General Public License version 3; see http://www.gnu.org/licenses/gpl-3.0.html
 -->
 <extension type="module" version="1.7.0" method="upgrade">
 	<name>RVS QuickResponse</name>
