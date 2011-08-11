@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
-    RVS QuickResponse
-    Rune V. Sjøen <rvsjoen@gmail.com>
-    Copyright (C) 2011 Rune V. Sjøen http://www.twilight-zone.com
-    License GNU General Public License version 3; see http://www.gnu.org/licenses/gpl-3.0.html
+<!--
+	RVS
+	QuickResponse
+	Rune V. Sjøen <rvsjoen@gmail.com>
+	Copyright (C) 2011 Rune V. Sjøen http://www.twilight-zone.com
+	License GNU General Public License version 3; see http://www.gnu.org/licenses/gpl-3.0.html
 -->
 <extension type="module" version="1.7.0" method="upgrade">
 	<name>RVS QuickResponse</name>
 	<creationDate>August 2011</creationDate>
-    <author>Rune V. Sjøen</author>
-    <authorEmail>rvsjoen@gmail.com</authorEmail>
-    <authorUrl>http://www.twilight-zone.com</authorUrl>
-    <copyright>Rune V. Sjøen</copyright>
-    <license>GNU/GPL</license>
-    <version>1.0</version>
+		<author>Rune V. Sjøen</author>
+		<authorEmail>rvsjoen@gmail.com</authorEmail>
+		<authorUrl>http://www.twilight-zone.com</authorUrl>
+		<copyright>Rune V. Sjøen</copyright>
+		<license>GNU/GPL</license>
+		<version>1.0</version>
 	<description>MOD_RVS_QUICKRESPONSE_XML_DESCRIPTION</description>
 	<files>
 		<folder>tmpl</folder>
@@ -26,11 +27,11 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field 
-				    name="size" 
-				    type="list" 
-				    label="MOD_RVS_QUICKRESPONSE_FIELD_SIZE_LABEL"
-				    default="128">
+				<field
+					name="size"
+					type="list"
+					label="MOD_RVS_QUICKRESPONSE_FIELD_SIZE_LABEL"
+					default="128">
 					<option value="64">MOD_RVS_QUICKRESPONSE_SIZE_SMALL</option>
 					<option value="128">MOD_RVS_QUICKRESPONSE_SIZE_MEDIUM</option>
 					<option value="256">MOD_RVS_QUICKRESPONSE_SIZE_LARGE</option>
