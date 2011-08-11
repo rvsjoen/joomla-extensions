@@ -1,0 +1,4 @@
+﻿VERSION 1.0
+
+	- Credits to the people at http://phpqrcode.sourceforge.net/ for making
+	  such a simple and powerful QR PHP library
