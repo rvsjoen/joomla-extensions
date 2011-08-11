@@ -15,7 +15,6 @@ $url = JURI::getInstance()->__toString();
 $qrhash = md5($url);
 $qrfile = JPATH_SITE.'/tmp/qr_'.$qrhash.'.png';
 
-var_dump(JURI::getInstance()->__toString());
 if(!file_exists($qrfile)){
 	QRcode::png($url, $qrfile, 'L', 4, 2);
 }
