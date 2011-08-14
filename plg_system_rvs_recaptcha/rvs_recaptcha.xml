@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<!--
 	$Id: rvs_recaptcha.xml 86 2011-03-31 01:35:11Z rvsjoen $
 	RVS reCaptcha
 	Rune V. Sjøen <rvsjoen@gmail.com>
@@ -15,7 +15,7 @@
 	<copyright>Rune V. Sjøen</copyright>
 	<license>GNU/GPL</license>
 	<description>PLG_SYSTEM_RVS_RECAPTCHA_XML_DESCRIPTION</description>
-	<version>1.2</version>
+	<version>1.2.1</version>
 	<files>
 		<folder>language</folder>
 		<folder>rules</folder>
@@ -30,17 +30,17 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field 
-					name="public_key" 
-					type="input" 
+				<field
+					name="public_key"
+					type="input"
 					class="text"
 					size="48"
 					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_PUBLIC_KEY"
 					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_PUBLIC_KEY_DESC"
 					/>
-				<field 
-					name="private_key" 
-					type="input" 
+				<field
+					name="private_key"
+					type="input"
 					class="text"
 					size="48"
 					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_NAME_PRIVATE_KEY"
@@ -74,7 +74,7 @@
 					<option value="pt">Portuguese</option>
 					<option value="ru">Russian</option>
 					<option value="es">Spanish</option>
-					<option value="tr">Turkish</option>	
+					<option value="tr">Turkish</option>
 				</field>
 				<field
 					name="tabindex"
@@ -87,9 +87,9 @@
 				/>
 			</fieldset>
 			<fieldset name="forms" label="PLG_SYSTEM_RVS_RECAPTCHA_FIELDSET_FORMS">
-				<field 
+				<field
 					id="form_userreg"
-					name="form_userreg" 
+					name="form_userreg"
 					type="radio"
 					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_USERREG_LABEL"
 					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_USERREG_DESC"
@@ -98,9 +98,9 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field 
+				<field
 					id="form_contact"
-					name="form_contact" 
+					name="form_contact"
 					type="radio"
 					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_CONTACT_LABEL"
 					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_CONTACT_DESC"
@@ -109,9 +109,9 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field 
+				<field
 					id="form_userremind"
-					name="form_userremind" 
+					name="form_userremind"
 					type="radio"
 					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_REMIND_LABEL"
 					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_REMIND_DESC"
@@ -120,9 +120,9 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field 
+				<field
 					id="form_userreset"
-					name="form_userreset" 
+					name="form_userreset"
 					type="radio"
 					label="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_RESET_LABEL"
 					description="PLG_SYSTEM_RVS_RECAPTCHA_FIELD_FORM_RESET_DESC"
