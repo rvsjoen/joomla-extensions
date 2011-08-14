@@ -12,7 +12,7 @@
 		element="rvs_recaptcha"
 		type="plugin"
 		folder="system"
-		version="1.2"
+		version="1.2.1"
 		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_recaptcha.xml"/>
 	<extension
 		name="System - RVS jQueryLoader"
