@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ @package		RVS
+ @author		Rune V. Sjøen <rvsjoen@gmail.com>
+ @copyright		Copyright (C) 2011 {@link http://www.twilight-zone.com}
+ @license		http://www.gnu.org/licenses/gpl-2.0.html
+-->
+<updates>
+	<update>
+		<version>1.0</version>
+		<downloads>
+			<downloadurl type="full" format="zip">http://www.twilight-zone.com/extensions/mod_quickresponse_1.0.zip</downloadurl>
+		</downloads>
+		<targetplatform name="joomla" version="1.6"/>
+	</update>
+	<update>
+		<version>1.0</version>
+		<downloads>
+			<downloadurl type="full" format="zip">http://www.twilight-zone.com/extensions/mod_quickresponse_1.0.zip</downloadurl>
+		</downloads>
+		<targetplatform name="joomla" version="1.7"/>
+	</update>
+</updates>

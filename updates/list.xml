@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<!--
  @package		RVS
  @author		Rune V. Sjøen <rvsjoen@gmail.com>
  @copyright		Copyright (C) 2011 {@link http://www.twilight-zone.com}
  @license		http://www.gnu.org/licenses/gpl-2.0.html
 -->
 <extensionset>
-	<extension 
+	<extension
 		name="System - RVS reCaptcha"
-		description="" 
-		element="rvs_recaptcha" 
-		type="plugin" 
-		folder="system" 
-		version="1.2" 
-		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_recaptcha.xml"/>
-	<extension 
-		name="System - RVS jQueryLoader"
-		description="" 
-		element="rvs_jqueryloader" 
-		type="plugin" folder="system" 
-		version="1.0" 
-		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_jqueryloader.xml"/>
-	<extension 
-		name="System - RVS PasswordChecker" 
 		description=""
-		element="rvs_passwordchecker" 
-		type="plugin" folder="system" 
-		version="1.0" 
+		element="rvs_recaptcha"
+		type="plugin"
+		folder="system"
+		version="1.2"
+		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_recaptcha.xml"/>
+	<extension
+		name="System - RVS jQueryLoader"
+		description=""
+		element="rvs_jqueryloader"
+		type="plugin" folder="system"
+		version="1.0"
+		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_jqueryloader.xml"/>
+	<extension
+		name="System - RVS PasswordChecker"
+		description=""
+		element="rvs_passwordchecker"
+		type="plugin" folder="system"
+		version="1.0"
 		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_passwordchecker.xml"/>
+    <extension
+        name="RVS QuickResponse"
+        description=""
+        element="rvs_quickresponse"
+        type="module"
+        version="1.0"
+        detailsurl="http://www.twilight-zone.com/extensions/update_mod_rvs_quickresponse.xml"/>
 </extensionset>
 
 <!--
