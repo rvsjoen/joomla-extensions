@@ -34,7 +34,7 @@
 					default="128">
 					<option value="64">MOD_RVS_QUICKRESPONSE_SIZE_SMALL</option>
 					<option value="128">MOD_RVS_QUICKRESPONSE_SIZE_MEDIUM</option>
-					<option value="256">MOD_RVS_QUICKRESPONSE_SIZE_LARGE</option>
+					<option value="192">MOD_RVS_QUICKRESPONSE_SIZE_LARGE</option>
 				</field>
 			</fieldset>
 		</fields>
