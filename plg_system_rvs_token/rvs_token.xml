@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ @package		RVS
+ @subpackage	Token
+ @author		Rune V. Sjøen <rvsjoen@gmail.com>
+ @copyright		Copyright (C) 2011 {@link http://www.twilight-zone.com}
+ @license		http://www.gnu.org/licenses/gpl-2.0.html
+-->
+<extension version="2.5" type="plugin" group="system">
+	<name>PLG_RVS_TOKEN</name>
+	<creationDate>January 2011</creationDate>
+	<author>Rune V. Sjøen</author>
+	<authorEmail>rvsjoen@gmail.com</authorEmail>
+	<authorUrl>http://www.twilight-zone.com</authorUrl>
+	<copyright>Rune V. Sjøen</copyright>
+	<license>GNU/GPL</license>
+	<description>PLG_SYSTEM_RVS_TOKEN_XML_DESCRIPTION</description>
+	<version>1.0</version>
+	<files>
+		<folder>language</folder>
+		<filename plugin="rvs_token">rvs_token.php</filename>
+	</files>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="collection" priority="1" name="RVS Extension Update Site">http://www.twilight-zone.com/extensions/list.xml</server>
+	</updateservers>
+</extension>
