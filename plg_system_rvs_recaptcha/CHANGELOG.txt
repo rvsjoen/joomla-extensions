@@ -1,4 +1,9 @@
-﻿VERSION 1.2.1
+﻿VERSION 1.2.2
+
+	- Added Russian translation (ru-RU), thank you -Creat!ve-
+      [http://creative3d.ru]
+
+VERSION 1.2.1
 
 	- Added Dutch tranlsation (nl-NL), thank you Ronald de Vries
 	- Added Brazilian Portuguese translation (pt-BR)
