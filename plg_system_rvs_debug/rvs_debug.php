@@ -11,11 +11,6 @@ class plgSystemRVS_Debug extends JPlugin
 {
 	protected $result = null;
 	
-	public function __construct()
-	{
-		$this->loadLanguage();		 
-	}
-	
 	public function onBeforeRender()
 	{
 		if (!JDEBUG) {
@@ -23,7 +18,6 @@ class plgSystemRVS_Debug extends JPlugin
 		}
 		$doc = JFactory::getDocument();
 		$doc->addStyleSheet(JURI::root(true).'/media/plg_system_rvs_debug/css/styles.css');
-		JHtml::_('behavior.tooltip');
 	}
 	
 	public function onAfterRender()
@@ -53,23 +47,28 @@ class plgSystemRVS_Debug extends JPlugin
 		if (!JDEBUG) {
 			return;
 		}
-		
+			
 		$html   = array();
 		$html[] = '<div id="rvs-debug">';
-		$html[] = '<h1>Validation results: <span class="'.($this->result->valid ? 'valid' : 'invalid').'">Document is '.($this->result->valid ? 'valid' : 'invalid').'</span></h1>';
-		$html[] = '<ul>';
-		foreach($this->result->errors as $item) {
-			$html[] = '<li class="validate-error">';
-			$html[] = '<h2>'.$item->line.':'.$item->col.' - '.$item->msg.'</h2>';
-			$html[] = '<hr/>';
-			$html[] = $item->explanation;
-			$html[] = '<pre>'.$item->source.'</pre>';
-			$html[] = '</li>';
+		if(!isset($this->result->valid)){
+			$html[] = '<h1>Validation failed, reload the page to try again</h1>';
+		} else {
+			$html[] = '<h1>Validation results: <span class="'.($this->result->valid ? 'valid' : 'invalid').'">Document is '.($this->result->valid ? 'valid' : 'invalid').'</span></h1>';
+			$html[] = '<ul>';
+			foreach((array) $this->result->errors as $item) {
+				$html[] = '<li class="validate-error">';
+				$html[] = '<h2>'.$item->line.':'.$item->col.' - '.$item->msg.'</h2>';
+				$html[] = '<hr/>';
+				$html[] = $item->explanation;
+				$html[] = '<pre>'.$item->source.'</pre>';
+				$html[] = '</li>';
+			}
+			foreach((array)$this->result->warnings as $item) {
+				$html[] = '<li class="validate-warning">'.$item->id.' - '.$item->msg.'</li>';
+			}
+			$html[] = '</ul>';
+
 		}
-		foreach($this->result->warnings as $item) {
-			$html[] = '<li class="validate-warning">'.$item->id.' - '.$item->msg.'</li>';
-		}
-		$html[] = '</ul>';
 		$html[] = '</div>';
 		echo implode("\n", $html);
 	}
@@ -88,15 +87,15 @@ class plgSystemRVS_Debug extends JPlugin
 
     private function parseSOAP12Response($xml)
     {
+        $response = new stdClass;
+		$response->warnings = array();
+		$response->errors = array();
         $doc = new DOMDocument();
         if ($doc->loadXML($xml)) {
-        	$response 	= new stdClass;
-			$warnings 	= $doc->getElementsByTagName('warning');
-			$errors		= $doc->getElementsByTagName('error');
-			$valid		= $doc->getElementsByTagName('validity');
-			$response->valid 	= ($valid->length && $valid->item(0)->nodeValue == 'true');
-			$response->warnings = array();
-			$response->errors	= array();
+			$warnings = $doc->getElementsByTagName('warning');
+			$errors	= $doc->getElementsByTagName('error');
+			$valid = $doc->getElementsByTagName('validity');
+			$response->valid = ($valid->length && $valid->item(0)->nodeValue == 'true');
 			// Grab the warnings
 			foreach($warnings as $message) {
 				if(is_object($message)){
