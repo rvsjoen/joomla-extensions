@@ -7,7 +7,7 @@
     <authorUrl>http://www.twilight-zone.com</authorUrl>
     <copyright>Copyright (C) Rune V. Sjøen. All rights reserved.</copyright>
     <license>License GNU General Public License version 2 or later</license>
-    <version>0.0.1</version>
+    <version>[VERSION]</version>
 	<description>PLG_SYSTEM_RVS_DEBUG_XML_DESCRIPTION</description>
 	<files>
 		<folder>language</folder>
