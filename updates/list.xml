@@ -28,13 +28,20 @@
 		type="plugin" folder="system"
 		version="1.0"
 		detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_passwordchecker.xml"/>
-    <extension
-        name="RVS QuickResponse"
-        description=""
-        element="rvs_quickresponse"
-        type="module"
-        version="1.0"
-        detailsurl="http://www.twilight-zone.com/extensions/update_mod_rvs_quickresponse.xml"/>
+	<extension
+	        name="RVS QuickResponse"
+	        description=""
+	        element="rvs_quickresponse"
+	        type="module"
+	        version="1.0"
+	        detailsurl="http://www.twilight-zone.com/extensions/update_mod_rvs_quickresponse.xml"/>
+	<extension
+	        name="System - RVS Debug"
+	        description=""
+	        element="rvs_debug"
+	        type="plugin" folder="system"
+	        version="1.0"
+	        detailsurl="http://www.twilight-zone.com/extensions/update_plg_system_rvs_debug.xml"/>
 </extensionset>
 
 <!--
