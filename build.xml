@@ -11,7 +11,8 @@
 	</tstamp>
 
 	<!-- Do initialization stuff -->
-	<target name="prepare">
+	<target name="prepare" depends="_customtasks">
+        <jproject name="${extension}" />
 		<property file="build.properties"  override="true"/>
 		<if>
 			<equals arg1="${extension}" arg2="" />
@@ -19,7 +20,7 @@
 				<fail message="Extension not specified, use -Dextension=EXTENSION" />
 			</then>
 			<else>
-				<property file="${extension}.properties"  override="true"/>
+				<!--<property file="${extension}.properties"  override="true"/>-->
 			</else>
 		</if>
 	</target>
@@ -33,49 +34,79 @@
 
 	<!-- Build the extension package from the folder -->
 	<target name="dist" depends="prepare">
-		<mkdir dir="${release.dir}" />
+        <mkdir  dir="${build.dir}" />
+		<delete dir="${build.dir}/${extension}" />
+        <mkdir  dir="${build.dir}/${extension}" />
+		<copy todir="${build.dir}/${extension}">
+			<fileset dir="${extension}">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+        <reflexive>
+          <fileset dir="${build.dir}/${extension}">
+            <include pattern="${project.manifest}.xml"/>
+          </fileset>
+          <filterchain>
+            <replaceregexp>
+              <regexp pattern="\[VERSION\]" replace="${version}"/>
+            </replaceregexp>
+          </filterchain>
+        </reflexive>
+        <mkdir dir="${release.dir}" />
 		<zip destfile="${release.dir}/${extension}_${version}.zip">
-			<fileset dir="${extension}" >
+			<fileset dir="${build.dir}/${extension}" >
 				<include name="**/*"/>
 			</fileset>
 		</zip>
 		<echo msg="DONE!" />
 	</target>
-
 	<!-- Delete the extension to make room for the updated version -->
 	<target name="_clean">
-		<delete includeemptydirs="true">
-		  <fileset dir="${extension}">
-		  	<include name="*" />
-		  	<include name="*/**" />
-		  </fileset>
-		</delete>
+        <available file="${extension}" type="dir" property="target.available" value="true" />
+		<if>
+			<equals arg1="${target.available}" arg2="1" />
+            <then>
+                <delete includeemptydirs="true">
+                  <fileset dir="${extension}">
+                    <include name="*" />
+                    <include name="*/**" />
+                  </fileset>
+                </delete>
+            </then>
+        </if>
 	</target>
-	
+
 	<!-- Copy the newly built extension into the repository -->
 	<target name="_sync">
+		<available file="${extension}" type="dir" property="target.available" value="true" />
+		<if>
+			<equals arg1="${target.available}" arg2="0" />
+			<then>
+				<mkdir dir="${extension}" />
+			</then>
+		</if>
 		<copy todir="${extension}">
 			<fileset dir="${build.dir}/${extension}">
 				<include name="**/*"/>
 			</fileset>
 		</copy>
 	</target>
-	
+
 	<!-- Check if the extension has a media folder and copy it -->
 	<target name="_media">
-		<available file="${source.dir}/media/${project.name}" type="dir" property="source.media.available" value="true" />
+		<available file="${source.dir}/media/${extension}" type="dir" property="source.media.available" value="true" />
 		<if>
 			<equals arg1="${source.media.available}" arg2="1" />
 			<then>
 				<copy todir="${build.dir}/${extension}/media" haltonerror="false">
-					<fileset dir="${source.dir}/media/${project.name}">
+					<fileset dir="${source.dir}/media/${extension}">
 						<include name="**/*"/>
 					</fileset>
 				</copy>
 			</then>
 		</if>
 	</target>
-	
+
 	<!-- Build target for modules -->
 	<target name="_module">
 		<!-- First we check if the extension has a media folder -->
@@ -91,7 +122,7 @@
 				<property name="source.dir" value="${source.dir}/modules/${project.dir}" override="true" />
 			</else>
 		</if>
-		
+
 		<!-- Now use the updated source.dir property to copy the source files -->
 		<available file="${source.dir}" type="dir" property="source.available" value="true" />
 		<if>
@@ -108,8 +139,8 @@
 				<fail msg="Source folder does not exist ${source.dir}" />
 			</else>
 		</if>
-		
-		<!-- Now that we have built the extension put it back into the repository --> 
+
+		<!-- Now that we have built the extension put it back into the repository -->
 		<phingcall target="_clean" />
 		<phingcall target="_sync" />
 	</target>
@@ -118,7 +149,7 @@
 	<target name="_component">
 		<!-- First we check if the extension has a media folder -->
 		<phingcall target="_media" />
-		
+
 		<copy todir="${build.dir}/${extension}/site" haltonerror="false">
 			<fileset dir="${source.dir}/components/${project.dir}">
 				<include name="**/*"/>
@@ -131,19 +162,28 @@
 		</copy>
 
 		<!-- Move the manifest to the parent directory -->
-		<move file="${build.dir}/${extension}/admin/${project.name}.xml" todir="${build.dir}/${extension}" />
-		
+		<move file="${build.dir}/${extension}/admin/${project.manifest}.xml" todir="${build.dir}/${extension}" />
+
+		<!-- Move the installer script if it exists -->
+		<available file="${build.dir}/${extension}/admin/script.php" type="file" property="script.available" value="true" />
+		<if>
+			<equals arg1="${script.available}" arg2="1" />
+			<then>
+				<move file="${build.dir}/${extension}/admin/script.php" todir="${build.dir}/${extension}" />
+			</then>
+		</if>
+
 		<!-- Now that we have built the extension put it back into the repository -->
-		<!--		<phingcall target="_clean" />
-		<phingcall target="_sync" /> -->
+		<phingcall target="_clean" />
+		<phingcall target="_sync" />
 	</target>
 
 	<!-- Build target for plugins -->
 	<target name="_plugin">
 		<!-- First we check if the extension has a media folder -->
 		<phingcall target="_media" />
-			
-		<property name="source.dir" value="${source.dir}/plugins/${project.group}/${project.dir}" override="true"/>
+
+		<property name="source.dir" value="${source.dir}/plugins/${plugin.group}/${project.dir}" override="true"/>
 
 		<available file="${source.dir}" type="dir" property="source.available" value="true" />
 		<if>
@@ -160,7 +200,7 @@
 				<fail msg="Source folder does not exist ${source.dir}" />
 			</else>
 		</if>
-		
+
 		<!-- Now that we have built the extension put it back into the repository -->
 		<phingcall target="_clean" />
 		<phingcall target="_sync" />
@@ -197,4 +237,51 @@
 		<phingcall target="_sync" />
 	</target>
 
+    <target name="_customtasks">
+        <adhoc-task name="jproject">
+            <![CDATA[
+                class JoomlaProjectTask extends PropertyTask
+                {
+                    public function setName($str){
+                        $this->project->setProperty("project.name", $str);
+                        $this->project->setProperty("project.client", "site");
+                        $arr = explode("_", $str);
+                        $prefix = $arr[0];
+                        switch($prefix){
+                            case 'plg':
+                                $this->project->setProperty("project.type", "plugin");
+                                $this->project->setProperty("plugin.group", $arr[1]);
+                                $this->project->setProperty("project.dir", implode("_", array_slice($arr, 2)));
+                                $this->project->setProperty("project.manifest", implode("_", array_slice($arr, 1)));
+                                break;
+                            case 'mod':
+                                $this->project->setProperty("project.type", "module");
+                                $this->project->setProperty("project.dir", implode("_", $arr));
+                                $this->project->setProperty("project.manifest", implode("_", $arr));
+                                if($arr[1] == 'admin'){
+                                    $this->project->setProperty("project.client", "admin");
+                                }
+                                break;
+                            case 'com':
+                                $this->project->setProperty("project.name", $str);
+                                $this->project->setProperty("project.type", "component");
+                                $this->project->setProperty("project.dir", implode("_", $arr));
+                                $this->project->setProperty("project.manifest", implode("_", array_slice($arr, 1)));
+                                break;
+                            case 'tpl':
+                                $this->project->setProperty("project.type", "template");
+                                $this->project->setProperty("project.dir", implode("_", array_slice($arr, 1)));
+                                $this->project->setProperty("project.manifest", "templateDetails.xml");
+                                if($arr[1] == 'admin'){
+                                    $this->project->setProperty("project.client", "admin");
+                                }
+                                break;
+                        }
+                    }
+
+                    public function main(){}
+                }
+            ]]>
+        </adhoc-task>
+    </target>
 </project>
