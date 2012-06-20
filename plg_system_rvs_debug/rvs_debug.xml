@@ -16,4 +16,7 @@
 	<media destination="plg_system_rvs_debug" folder="media">
 		<folder>css</folder>
 	</media>
+    <updateservers>
+        <server type="collection" priority="1" name="RVS Extension Update Site">http://www.twilight-zone.com/extensions/list.xml</server>
+    </updateservers>
 </extension>
