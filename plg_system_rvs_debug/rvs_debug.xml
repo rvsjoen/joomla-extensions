@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system">
+	<name>plg_system_rvs_debug</name>
+    <creationDate>2012</creationDate>
+    <author>Rune V. Sjøen</author>
+    <authorEmail>rvsjoen@gmail.com</authorEmail>
+    <authorUrl>http://www.twilight-zone.com</authorUrl>
+    <copyright>Copyright (C) Rune V. Sjøen. All rights reserved.</copyright>
+    <license>License GNU General Public License version 2 or later</license>
+    <version>0.0.1</version>
+	<description>PLG_SYSTEM_RVS_DEBUG_XML_DESCRIPTION</description>
+	<files>
+		<folder>language</folder>
+		<filename plugin="rvs_debug">rvs_debug.php</filename>
+		<filename>rvs_debug.xml</filename>
+	</files>
+	<media folder="media">
+		<folder>css</folder>
+	</media>
+</extension>
