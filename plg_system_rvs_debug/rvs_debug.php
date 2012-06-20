@@ -10,6 +10,12 @@
 class plgSystemRVS_Debug extends JPlugin
 {
 	protected $result = null;
+
+	public function __construct(&$subject, $config)
+	{
+		parent::__construct(&$subject, $config);
+		$this->loadLanguage();
+	}
 	
 	public function onBeforeRender()
 	{
@@ -51,13 +57,16 @@ class plgSystemRVS_Debug extends JPlugin
 		$html   = array();
 		$html[] = '<div id="rvs-debug">';
 		if(!isset($this->result->valid)){
-			$html[] = '<h1>Validation failed, reload the page to try again</h1>';
+			$html[] = '<h1>'.JText::_('PLG_SYSTEM_RVS_DEBUG_VALIDATION_FAILED').'</h1>';
 		} else {
-			$html[] = '<h1>Validation results: <span class="'.($this->result->valid ? 'valid' : 'invalid').'">Document is '.($this->result->valid ? 'valid' : 'invalid').'</span></h1>';
+			$html[] = '<h1>'.JText::_('PLG_SYSTEM_RVS_DEBUG_VALIDATION_RESULTS').' '.
+					'<span class="'.($this->result->valid ? 'valid' : 'invalid').'">'.
+					JText::_('PLG_SYSTEM_RVS_DEBUG_DOCUMENT_IS').' '.
+					JText::_($this->result->valid ? 'PLG_SYSTEM_RVS_DEBUG_VALID' : 'PLG_SYSTEM_RVS_DEBUG_INVALID').'</span></h1>';
 			$html[] = '<ul>';
 			foreach((array) $this->result->errors as $item) {
 				$html[] = '<li class="validate-error">';
-				$html[] = '<h2>'.$item->line.':'.$item->col.' - '.$item->msg.'</h2>';
+				$html[] = '<h2>'.JText::_('PLG_SYSTEM_RVS_DEBUG_LINE').' '.$item->line.':'.JText::_('PLG_SYSTEM_RVS_DEBUG_COLUMN').' '.$item->col.' - '.$item->msg.'</h2>';
 				$html[] = '<hr/>';
 				$html[] = $item->explanation;
 				$html[] = '<pre>'.$item->source.'</pre>';
