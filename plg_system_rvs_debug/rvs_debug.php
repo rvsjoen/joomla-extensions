@@ -94,11 +94,15 @@ class plgSystemRVS_Debug extends JPlugin
 			$response->errors	= array();
 			// Grab the warnings
 			foreach($warnings as $message) {
-				$response->warnings[] = $this->parseSOAP12Message($message);
+				if(is_object($message)){
+					$response->warnings[] = $this->parseSOAP12Message($message);
+				}
 			}
 			// Grab the errors
 			foreach($errors as $message) {
-				$response->errors[] = $this->parseSOAP12Message($message);
+				if(is_object($message)){
+					$response->errors[] = $this->parseSOAP12Message($message);
+				}
 			}
             return $response;
         } else {
