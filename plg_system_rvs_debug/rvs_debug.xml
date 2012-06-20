@@ -12,7 +12,6 @@
 	<files>
 		<folder>language</folder>
 		<filename plugin="rvs_debug">rvs_debug.php</filename>
-		<filename>rvs_debug.xml</filename>
 	</files>
 	<media destination="plg_system_rvs_debug" folder="media">
 		<folder>css</folder>
