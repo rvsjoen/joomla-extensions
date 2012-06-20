@@ -1,0 +1,58 @@
+div#rvs-debug {
+	background-color: white;
+	color: black;
+	border: 1px dashed silver;
+	padding: 10px;
+	margin: 5px;
+}
+
+div#rvs-debug h1 {
+	background-color: #2c2c2c;
+	color: #fff;
+	padding: 10px;
+	margin: 0;
+	font-size: 16px;
+	line-height: 1em;
+}
+
+div#rvs-debug h1 span {
+	font-weight: bold;
+}
+
+div#rvs-debug h1 span.valid {
+	color: green;
+}
+
+div#rvs-debug h1 span.invalid {
+	color: red;
+}
+
+div#rvs-debug h2 {
+	background-color: #2c2c2c;
+	color: #fff;
+	padding: 10px;
+	margin: 0;
+	font-size: 14px;
+	line-height: 1em;
+}
+
+div#rvs-debug ul li {
+	list-style-type: none;
+	padding: 15px;
+	margin: 10px 0;
+}
+
+li.validate-error {
+	background-color: #ff6666;
+	border-color: #DE7A7B;
+}
+
+li.validate-warning {
+	background-color: #ffff66;
+	border-color: #FFBB00;
+}
+
+div#rvs-debug ul li a {
+	color: black;
+	font-weight: bold;
+}
