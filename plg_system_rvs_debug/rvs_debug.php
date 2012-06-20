@@ -11,6 +11,11 @@ class plgSystemRVS_Debug extends JPlugin
 {
 	protected $result = null;
 	
+	public function __construct()
+	{
+		$this->loadLanguage();		 
+	}
+	
 	public function onBeforeRender()
 	{
 		if (!JDEBUG) {
